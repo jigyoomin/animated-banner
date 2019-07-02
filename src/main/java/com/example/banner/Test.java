@@ -1,8 +1,6 @@
 package com.example.banner;
 
 import org.springframework.boot.ImageBanner;
-import org.springframework.core.env.MutablePropertySources;
-import org.springframework.core.env.SimpleCommandLinePropertySource;
 import org.springframework.core.env.StandardEnvironment;
 import org.springframework.core.io.DefaultResourceLoader;
 import org.springframework.core.io.Resource;
@@ -29,7 +27,10 @@ public class Test {
         
         for (int i = 0 ; i < count ; i++) {
             imageBanner.printBanner(environment, Test.class, System.out);
-            System.out.print("\033[41A\r");
+            
+            if (i < count - 1) {
+                System.out.print("\033[41A\r");
+            }
         }
     }
 }
